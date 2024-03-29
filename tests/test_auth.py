@@ -1,15 +1,24 @@
 import time
-from demowebshop_tests.pages.MainPage import main_mage
-from demowebshop_tests.api.BoardApi import board_api
-from selene import browser
+from demowebshop_tests.application import app
+from utils.helper import helper
+
 
 def test_auth_form():
-    main_mage.login_form()
+    app.main_page.check_login_form()
     time.sleep(3)
 
-def test_add_item_to_cart():
-    board_api.add_item_to_card()
-    main_mage.go_to_cart()
-    main_mage.check_item_in_cart()
 
+def test_add_item_to_cart():
+    app.board_api.add_item_to_card()
+    app.main_page.go_to_cart()
+    app.main_page.check_item_in_cart('14.1-inch Laptop')
+    helper.clean_cart()
     time.sleep(4)
+
+
+def test_add_new():
+    app.board_api.add_book_to_cart()
+    app.main_page.go_to_cart()
+    app.main_page.check_item_in_cart('Computing and Internet')
+    helper.clean_cart()
+    time.sleep(6)
