@@ -2,7 +2,7 @@ import os
 import requests
 
 
-def add_auth_cookie():
+def get_auth_cookie():
     url_api = os.getenv('API_URL')
     email = os.getenv('LOGIN')
     password = os.getenv('PASSWORD')
