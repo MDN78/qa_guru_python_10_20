@@ -12,14 +12,15 @@ jsonschema = "4.21.1"
 pytest = "8.1.1"
 python-dotenv = "1.0.1"
 selene = "2.0.0rc9"
+allure-pytest = "2.13.4"
 
 [tool.pytest.ini_options]
 addopts = [
-    "-s -v",
     "--alluredir", "allure-results",
-    "--clean-alluredir"
+    "--clean-alluredir",
+    "-s",
+    "-v",
 ]
-
 
 [build-system]
 requires = ["poetry-core"]
