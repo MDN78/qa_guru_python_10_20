@@ -2,16 +2,14 @@ import os
 import requests
 from selene import browser
 from allure_commons._allure import step
-from dotenv import load_dotenv
 
 
 class Helper:
     def get_auth_cookie(self):
-        load_dotenv()
         url_api = os.getenv('API_URL')
         email = os.getenv('LOGIN')
         password = os.getenv('PASSWORD')
-        with step(f'API-POST: user:{email} url:{url_api}'):
+        with step(f'API-POST: USER: {email} URL: {url_api}'):
             response = requests.post(url=url_api + "login",
                                      data={"Email": email, "Password": password},
                                      allow_redirects=False)

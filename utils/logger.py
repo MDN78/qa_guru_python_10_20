@@ -2,8 +2,8 @@ import json
 import logging
 import allure
 import requests
-from allure_commons._allure import step
 from curlify import to_curl
+from allure_commons._allure import step
 
 
 def post_request_logger(url, **kwargs):

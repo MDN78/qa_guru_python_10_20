@@ -1,6 +1,7 @@
-from selene import browser, have
 import os
+from selene import browser, have
 from allure_commons._allure import step
+
 
 class MainPage:
 
@@ -13,7 +14,7 @@ class MainPage:
             browser.element('#topcartlink').click()
 
     def check_item_in_cart(self, item):
-        with step('UI: checking item in cart'):
+        with step(f'UI: checking item {item} in cart'):
             browser.element('.product-name').should(have.text(item))
 
 
