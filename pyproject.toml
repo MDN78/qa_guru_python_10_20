@@ -13,6 +13,7 @@ pytest = "8.1.1"
 python-dotenv = "1.0.1"
 selene = "2.0.0rc9"
 allure-pytest = "2.13.4"
+curlify = "^2.2.1"
 
 [tool.pytest.ini_options]
 addopts = [
