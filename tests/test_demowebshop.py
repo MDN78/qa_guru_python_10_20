@@ -5,7 +5,8 @@ from demowebshop_tests.pages.MainPage import main_page
 
 
 def test_auth_form():
-    main_page.check_login_form()
+    login = os.getenv('LOGIN')
+    main_page.check_login_form(login)
 
 
 def test_add_notebook_to_cart():

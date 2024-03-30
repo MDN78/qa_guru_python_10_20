@@ -5,9 +5,9 @@ from allure_commons._allure import step
 
 class MainPage:
 
-    def check_login_form(self):
+    def check_login_form(self, login):
         with step('UI: checking authorization'):
-            browser.element(".account").should(have.text(os.getenv('LOGIN')))
+            browser.element(".account").should(have.text(login))
 
     def go_to_cart(self):
         with step('UI: go to cart'):
