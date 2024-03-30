@@ -1,5 +1,5 @@
 import pytest
-
+from allure_commons._allure import step
 from dotenv import load_dotenv
 
 from selene import browser
@@ -13,11 +13,13 @@ def load_env():
 
 @pytest.fixture(scope="function", autouse=True)
 def auth_driver():
-    cookie = helper.get_auth_cookie()
-    browser.open("http://demowebshop.tricentis.com")
-    browser.driver.add_cookie({"name": "NOPCOMMERCE.AUTH", "value": cookie})
+    with step('UI: authorization user'):
+        cookie = helper.get_auth_cookie()
+        browser.open("http://demowebshop.tricentis.com")
+        browser.driver.add_cookie({"name": "NOPCOMMERCE.AUTH", "value": cookie})
 
     browser.open("http://demowebshop.tricentis.com")
     yield browser
 
-    browser.quit()
+    with step('UI: close driver'):
+        browser.quit()

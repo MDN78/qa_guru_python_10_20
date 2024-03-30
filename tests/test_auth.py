@@ -1,24 +1,22 @@
 import time
-from demowebshop_tests.application import app
 from utils.helper import helper
+from demowebshop_tests.api.BoardApi import board_api
+from demowebshop_tests.pages.MainPage import main_page
 
 
 def test_auth_form():
-    app.main_page.check_login_form()
-    time.sleep(3)
+    main_page.check_login_form()
 
 
 def test_add_item_to_cart():
-    app.board_api.add_item_to_card()
-    app.main_page.go_to_cart()
-    app.main_page.check_item_in_cart('14.1-inch Laptop')
+    board_api.add_item_to_card()
+    main_page.go_to_cart()
+    main_page.check_item_in_cart('14.1-inch Laptop')
     helper.clean_cart()
-    time.sleep(4)
 
 
 def test_add_new():
-    app.board_api.add_book_to_cart()
-    app.main_page.go_to_cart()
-    app.main_page.check_item_in_cart('Computing and Internet')
+    board_api.add_book_to_cart()
+    main_page.go_to_cart()
+    main_page.check_item_in_cart('Computing and Internet')
     helper.clean_cart()
-    time.sleep(6)
