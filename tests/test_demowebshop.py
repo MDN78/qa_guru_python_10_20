@@ -1,7 +1,7 @@
 import os
 from utils.helper import helper
-from demowebshop_tests.api.BoardApi import board_api
-from demowebshop_tests.pages.MainPage import main_page
+from demowebshop_tests.api.board_api import board_api
+from demowebshop_tests.pages.main_page import main_page
 
 
 def test_auth_form():
