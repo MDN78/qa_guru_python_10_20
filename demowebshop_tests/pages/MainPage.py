@@ -1,4 +1,3 @@
-import os
 from selene import browser, have
 from allure_commons._allure import step
 
